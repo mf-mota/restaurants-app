@@ -28,7 +28,9 @@ Sometimes a couple of the first 10 restaurants returned by the Just Eats API are
 
 ## Screenshots
 ![all_restaurants](https://github.com/mf-mota/restaurants-app/assets/74459782/2968f1f7-22c2-4760-b4f7-7fe05e652d1d)
+
 Hover over a restaurant's card to zoom in on its location
+
 ![restaurant_view](https://github.com/mf-mota/restaurants-app/assets/74459782/4c5ab69a-960b-467e-a90e-95125ae33bc3)
 
 
