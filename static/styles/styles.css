@@ -1,0 +1,72 @@
+#main-title {
+    background-color: #D5D5D5;
+    color: #ff8000;
+    padding: 1rem 2rem;
+    border-bottom: 0.2rem solid #7d8ea8;
+}
+
+.light-gray-bg {
+    background-color: #dae5f542;
+}
+
+.orange-bg {
+    background-color: #ff8000;
+}
+
+.textc-orange {
+    color: #ff8000;
+}
+.light-orange-bg {
+    background-color: #F6F5F2;
+}
+
+.cuisine-btn {
+    color: #ff8000;
+    border-color: #ff8000;
+}
+
+.smaller-text {
+    font-size: 0.9rem;
+}
+
+.cuisine-btn:hover {
+    background-color: #00000000;
+    color: #ff8000;
+    border-color: #ff8000;
+    cursor: default;
+}
+
+#map {
+    width: 40vw;
+    height: 80vh;
+    margin-right: 2%;
+    position: sticky;
+    top: 10vh;
+}
+
+.map-card {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.map-coordinates {
+    font-size: 0.9rem;
+    margin-top: 0.9rem;
+}
+
+#error-div {
+     width: 90vw;
+     height: 80vh;
+}
+
+#footer {
+    margin-top: 5%;
+    background-color: #D5D5D5;
+    padding: 1vw;
+    text-align: center
+}
+
+#footer-text {
+     margin-bottom: 0;
+}

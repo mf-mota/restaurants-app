@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
+        <link href="{{ url_for('static', filename='styles/styles.css') }}" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/f5b4b83823.js" crossorigin="anonymous"></script>
+        <title>Just Eat - Restaurants</title>
+    </head>
+    <body class="light-gray-bg">
+        <h1 id="main-title">Restaurants at {{ postcode }}</h1>
+        <main class="d-flex">
+            {% if data %}
+            <div class="col-7 d-flex justify-content-around flex-wrap">
+                {% for restaurant in data %}
+                <div class="card col-7 col-md-5 m-2" id="{{ restaurant['id'] }}">
+                    <h5 class="card-header text-center text-white orange-bg">{{ restaurant.name }}</h5>
+                    <div class="card-body light-orange-bg">
+                        <h5 class="card-title text-center" aria-label="restaurant-rating">
+                            {% for number in range(0, restaurant.rating.starRating | int) %}
+                            <i class="fa-solid fa-star textc-orange"></i>
+                            {% endfor %}
+                            {% if restaurant.rating.starRating - restaurant.rating.starRating | int >= 0.5 %}
+                            <i class="fa fa-star-half-o textc-orange"></i>
+                            {% endif %}
+                            {{ restaurant.rating.starRating }}/5
+                        </h5>
+                        <p class="card-text">Address: {{ restaurant.address.firstLine }}, {{ restaurant.address.city }} {{ restaurant.address.postalCode }}</p>
+                        <div class="d-flex justify-content-center flex-wrap">
+                        {% for cuisine in restaurant.cuisines %}
+                        <span class="btn btn-outline m-1 cuisine-btn">{{ cuisine.name }}</span>
+                        {% endfor %}
+                        </div>
+                     </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="mt-2" id='map'></div>
+            {% else %}
+            <div class="d-flex justify-content-center align-items-center" id="error-div">
+                <h2>Sorry, we could not retrieve the restaurants from the server</h2>
+            </div>
+            {% endif %}
+        </main>
+        <script>
+            const mapCentre = {{ map_centre | tojson | safe }};
+            const restaurants = {{ data | tojson | safe }}
+        </script>
+        <script src="{{ url_for('static', filename='js/maps.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+    <footer id="footer">
+        <p id="footer-text"><strong>Miguel F. Mota, 2024</strong></p>
+    </footer>
+</html>
