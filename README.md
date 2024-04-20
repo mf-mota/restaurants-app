@@ -18,12 +18,16 @@ By default the server runs on port 5000 (localhost:5000)
 
 
 ## Assumptions
-The use of external libraries and frameworks is allowed.
+- The pieces of data returned in the Just Eat's API restaurant objects that should be displayed to the user are not null.
+Each restaurant object must include an id, name, starRating, address (city, first line, postal code and coordinates) and cuisine(s).
+- If the status code in the API response is not equal to 200, or a connection cannot be established, an error message is displayed.
+- The use of external libraries is allowed.
 
 ## Potential Improvements
 - Adjust the map's initial zoom to fit all restaurants' pins.
 Sometimes a couple of the first 10 restaurants returned by the Just Eats API are located in other towns/ cities.
 - Sort by rating and filter by cuisine (e.g. dropdown lists)
+- Handle missing attributes in the restaurant objects
 - Adjust the page for devices with screens of smaller widths (mobile) and add aria-labels for accessibility
 
 ## Screenshots
